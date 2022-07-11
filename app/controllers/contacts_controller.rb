@@ -15,6 +15,18 @@ class ContactsController < ApplicationController
     @contact = Contact.new
   end
 
+  def confirm
+    @contact = Contact.new(contact_params)
+    if @contact.invalid?
+      render :new
+    end
+  end
+
+  def back
+    @contact = Contact.new(contact_params)
+    render :new
+  end
+
   # GET /contacts/1/edit
   def edit
   end
@@ -32,6 +44,9 @@ class ContactsController < ApplicationController
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def done
   end
 
   # PATCH/PUT /contacts/1 or /contacts/1.json
