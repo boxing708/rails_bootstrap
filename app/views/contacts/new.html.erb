@@ -1,5 +1,48 @@
-<h1>New Contact</h1>
+<h1>お問い合わせ</h1>
 
-<%= render 'form', contact: @contact %>
+<%= form_for(@contact, url: confirm_path) do |form| %>
+  <% if @contact.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
-<%= link_to 'Back', contacts_path %>
+      <ul>
+        <% @contact.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.radio_button :category, "Achieve" %>Achieve
+    <%= form.radio_button :category, "テキスト" %>テキスト
+    <%= form.radio_button :category, "説明会" %>説明会
+    <%= form.radio_button :category, "その他" %>その他
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit "内容確認" %>
+  </div>
+<% end %>
+
+
+<br>
+
+<div>
+  <%= link_to "Back to contacts", contacts_path %>
+</div>
