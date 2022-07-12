@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h2>現在 <%= current_user.name %> さんがログインしています</h2>
+<h4>メールアドレス： <%= current_user.email %></h4>
+<%= link_to "プロフィール編集", edit_user_registration_path %>
+<%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+
 <h1>Blogs</h1>
 
 <table>
