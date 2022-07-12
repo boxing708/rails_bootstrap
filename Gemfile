@@ -52,6 +52,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener_web', '~> 2.0'
+  gem 'devise'
 end
 
 group :test do
