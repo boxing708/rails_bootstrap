@@ -8,28 +8,23 @@
 
 <h1>Blogs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div id="new-blog-link">
+    <%= link_to '新規ブログを作成する', new_blog_path %>
+  </div>
 
-  <tbody>
+  <div class="row">
     <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.content %></td>
-        <td><%= link_to 'Show', blog, class: 'btn btn-light' %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info' %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-      </tr>
+      <div class="col-xs-12 col-md-6 blog-panel">
+        <h2><%= blog.title %></h2>
+        <p><%= blog.content %></p>
+        <p><%= blog.created_at %></p>
+        <div class="blog-links">
+          <%= link_to 'Show', blog, class: 'btn btn-default' %>
+          <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info' %> |
+          <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Blog', new_blog_path %>
+  </div>
+</div>
