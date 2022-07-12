@@ -53,6 +53,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'letter_opener_web', '~> 2.0'
   gem 'devise'
+  gem 'bootstrap', '~> 5.1.3'
+  gem 'jquery-rails'
 end
 
 group :test do
