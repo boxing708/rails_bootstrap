@@ -1,39 +1,43 @@
-<h1>お問い合わせ内容確認</h1>
+<div class="container vh-100">
 
-<table>
-  <tbody>
-    <tr>
-      <td>お名前</td>
-      <td><%= @contact.name %></td>
-    </tr>
-    <tr>
-      <td>メールアドレス</td>
-      <td><%= @contact.email %></td>
-    </tr>
-    <tr>
-      <td>カテゴリー</td>
-      <td><%= @contact.category %></td>
-    </tr>
-    <tr>
-      <td>内容</td>
-      <td><%= @contact.content %></td>
-    </tr>
-  </tbody>
-</table>
-<br>
+  <h1>お問い合わせ内容確認</h1>
 
-<%= form_for(@contact) do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <td>お名前</td>
+        <td><%= @contact.name %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @contact.email %></td>
+      </tr>
+      <tr>
+        <td>カテゴリー</td>
+        <td><%= @contact.category %></td>
+      </tr>
+      <tr>
+        <td>内容</td>
+        <td><%= @contact.content %></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+  <%= form_for(@contact) do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :category %>
+    <%= f.hidden_field :content %>
+    <div><%= f.submit '送信' %></div>
+  <% end %>
+  <br>
+  <%= form_for @contact, url: back_path do |f| %>
   <%= f.hidden_field :name %>
   <%= f.hidden_field :email %>
   <%= f.hidden_field :category %>
   <%= f.hidden_field :content %>
-  <div><%= f.submit '送信' %></div>
-<% end %>
-<br>
-<%= form_for @contact, url: back_path do |f| %>
-<%= f.hidden_field :name %>
-<%= f.hidden_field :email %>
-<%= f.hidden_field :category %>
-<%= f.hidden_field :content %>
-  <div><%= f.submit '入力画面に戻る' %></div>
-<% end %>
+    <div><%= f.submit '入力画面に戻る' %></div>
+  <% end %>
+
+</div>
