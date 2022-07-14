@@ -1,11 +1,16 @@
 <div class="container vh-100">
-  <h1>All users</h1>
+  <h1 class="my-3">All users</h1>
 
-  <ul class="users">
+  <div class="row g-4">
     <% @users.each do |user| %>
-      <li>
-        <%= link_to user.name, user %>
-      </li>
+      <div class="col-xs-12 col-md-6">
+        <%= image_tag(user.icon, size: '300x200') if user.icon.attached? %><br />
+        <h2 class="my-2"><%= user.name %></h2>
+        <p><%= user.email %></p>
+        <div class="user-link">
+          <%= link_to "Show", user, class: "btn btn-success text-white" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
