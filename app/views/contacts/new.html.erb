@@ -1,52 +1,54 @@
-<div class="container vh-100">
+<div class="vh-100 d-flex">
+  <div class="container text-center">
 
-  <h1>お問い合わせ</h1>
+    <h1 class="my-5">お問い合わせ</h1>
 
-  <%= form_for(@contact, url: confirm_path) do |form| %>
-    <% if @contact.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+    <%= form_for(@contact, url: confirm_path) do |form| %>
+      <% if @contact.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
-        <ul>
-          <% @contact.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+          <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= form.label :name, style: "display: block" %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :email, style: "display: block" %>
+        <%= form.text_field :email %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.radio_button :category, "Achieve" %>Achieve
+        <%= form.radio_button :category, "テキスト" %>テキスト
+        <%= form.radio_button :category, "説明会" %>説明会
+        <%= form.radio_button :category, "その他" %>その他
+      </div>
+
+      <div>
+        <%= form.label :content, style: "display: block" %>
+        <%= form.text_area :content %>
+      </div>
+
+      <div>
+        <%= form.submit "内容確認", class: "btn btn-success mt-3" %>
       </div>
     <% end %>
 
-    <div>
-      <%= form.label :name, style: "display: block" %>
-      <%= form.text_field :name %>
-    </div>
+
+    <br>
 
     <div>
-      <%= form.label :email, style: "display: block" %>
-      <%= form.text_field :email %>
+      <%= link_to "Back to contacts", contacts_path, class: "btn btn-outline-dark mt-3" %>
     </div>
 
-    <div>
-      <%= form.radio_button :category, "Achieve" %>Achieve
-      <%= form.radio_button :category, "テキスト" %>テキスト
-      <%= form.radio_button :category, "説明会" %>説明会
-      <%= form.radio_button :category, "その他" %>その他
-    </div>
-
-    <div>
-      <%= form.label :content, style: "display: block" %>
-      <%= form.text_area :content %>
-    </div>
-
-    <div>
-      <%= form.submit "内容確認" %>
-    </div>
-  <% end %>
-
-
-  <br>
-
-  <div>
-    <%= link_to "Back to contacts", contacts_path %>
   </div>
-
 </div>
