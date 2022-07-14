@@ -1,3 +1,11 @@
-<div class="container vh-100">
-  <h1>My page (<%= @user.name %>)</h1>
+<div class="vh-100 d-flex">
+  <div class="container text-center">
+    <h1 class="my-3">Detail page</h1>
+
+    <div class="">
+      <%= image_tag(@user.icon, size: '500x400') if @user.icon.attached? %><br />
+      <h2 class="my-4"><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+    </div>
+  </div>
 </div>
