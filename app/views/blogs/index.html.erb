@@ -2,7 +2,7 @@
 
 <div class="container">
   <h1>Blogs</h1>
-  
+
   <div id="new-blog-link">
     <%= link_to '新規ブログを作成する', new_blog_path, class: 'btn btn-success text-white mt-3' %>
   </div>
@@ -14,9 +14,9 @@
         <p><%= blog.content %></p>
         <p><%= blog.created_at %></p>
         <div class="blog-links">
-          <%= link_to 'Show', blog, class: 'btn btn-light' %>
-          <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info' %> |
-          <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Show', blog, class: 'btn btn-secondary text-white' %>
+          <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info text-white' %> |
+          <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger  text-white' %>
         </div>
       </div>
     <% end %>
