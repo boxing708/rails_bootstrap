@@ -12,6 +12,7 @@
       <div class="col-xs-12 col-md-6 blog-panel">
         <h2><%= blog.title %></h2>
         <p><%= blog.content %></p>
+        <p>Written by <%= blog.user.name %></p>
         <p><%= blog.created_at %></p>
         <div class="blog-links">
           <%= link_to 'Show', blog, class: 'btn btn-secondary text-white' %>
