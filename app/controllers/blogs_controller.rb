@@ -23,6 +23,7 @@ class BlogsController < ApplicationController
   # POST /blogs or /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id #ブログを投稿した人 = 現在ログインしているユーザ
 
     respond_to do |format|
       if @blog.save
