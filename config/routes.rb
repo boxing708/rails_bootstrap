@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root :to => "home#top"
   resources :users, :only => [:index, :show]
-  resources :blogs
+  resources :blogs do
+    resources :comments, only: [:create]
+  end
   resources :contacts
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
