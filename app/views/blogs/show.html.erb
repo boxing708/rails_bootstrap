@@ -40,7 +40,7 @@
 
     <h1 class="my-5">Comments</h1>
     <div class="row">
-      <% @blog.comments.each do |comment| %>
+      <% @blog.comments.includes(:user).each do |comment| %>
         <div class="col-xs-12 col-md-6 blog-panel">
           <h2><%= comment.comment_content %></h2>
           <p>Written by <%= comment.user.name %></p>
