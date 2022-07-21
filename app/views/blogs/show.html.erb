@@ -45,6 +45,7 @@
           <h2><%= comment.comment_content %></h2>
           <p>Written by <%= comment.user.name %></p>
           <p><%= comment.created_at %></p>
+          <%= link_to 'Destroy', [comment.blog, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger  text-white' %>
         </div>
       <% end %>
     </div>

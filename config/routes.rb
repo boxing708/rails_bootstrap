@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root :to => "home#top"
   resources :users, :only => [:index, :show]
   resources :blogs do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   resources :contacts
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
