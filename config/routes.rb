@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   resources :contacts
-  resources :favorites, only: [:create, :destroy]
+  # resources :favorites, only: [:create, :destroy]
+  post 'favorite/:blog_id' => 'favorites#create', as: 'create_favorite'
+  delete 'favorite/:blog_id' => 'favorites#destroy', as: 'destroy_favorite'
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
   get 'done', to: 'contacts#done', as: 'done'
