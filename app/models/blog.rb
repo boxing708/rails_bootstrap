@@ -9,4 +9,5 @@ class Blog < ApplicationRecord
     .includes(:user) #ユーザを事前に取得してN+1防止
   }
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end
