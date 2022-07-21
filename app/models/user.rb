@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_one_attached :icon
   has_many :blogs, dependent: :destroy
   has_many :comments
+  paginates_per 10
 end
