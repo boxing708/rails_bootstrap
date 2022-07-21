@@ -11,6 +11,7 @@ class BlogsController < ApplicationController
   def show
     @comments = @blog.comments.includes(:user).page(params[:page])
     @comment = Comment.new #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
   # GET /blogs/new
