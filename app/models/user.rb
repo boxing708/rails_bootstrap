@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :blogs, dependent: :destroy
   has_many :comments
   paginates_per 10
+  scope :index_all, -> {
+  select(:id, :name, :email) #フィールドごとにレコードを取得
+  .with_attached_icon #iconを事前に取得してN+1防止
+}
 end

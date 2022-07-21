@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.select(:id, :name, :email).with_attached_icon.page(params[:page])
+    @users = User.index_all.page(params[:page])
   end
 
   def show
