@@ -5,5 +5,6 @@ class HomeController < ApplicationController
   end
 
   def mypage
+    @favorite_blogs = current_user.favorite_blogs.includes(:user)
   end
 end

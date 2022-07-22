@@ -1,9 +1,23 @@
-<div class="vh-100 d-flex">
+<div class="d-flex">
   <div class="container text-center">
     <h2 class="my-5">Hello, <%= current_user.name %> さん</h2>
     <p>メールアドレス： <%= current_user.email %></p>
     <%= image_tag(current_user.icon, size: '300x200') if current_user.icon.attached? %><br />
     <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-success text-white my-4" %>
     <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark mt-2" %>
+
+    <h1 class="my-5">Favorite Blogs</h1>
+    <div class="row g-5 my-5">
+      <% @favorite_blogs.each do |blog| %>
+        <div class="col-xs-12 col-md-6">
+          <h2><%= blog.title %></h2>
+          <p><%= blog.content %></p>
+          <p>Written by <%= blog.user.name %></p>
+          <div class="blog-links">
+            <%= link_to 'Show', blog, class: 'btn btn-secondary text-white' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
