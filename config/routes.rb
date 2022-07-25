@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root :to => "home#top"
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show] do
+    resource :relationships, :only => [:create, :destroy]
+    get :followings, on: :member
+    get :followers, on: :member
+  end
   resources :blogs do
     resources :comments, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]
