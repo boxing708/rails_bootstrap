@@ -6,6 +6,7 @@
       <%= image_tag(@user.icon,size: "500x400", class: "img-fluid") if @user.icon.attached? %><br />
       <h2 class="my-4"><%= @user.name %></h2>
       <p><%= @user.email %></p>
+      <p class="text-small"><%= link_to @user.followings.count, followings_user_path(@user) %> フォロー <%= link_to @user.followers.count, followers_user_path(@user) %> フォロワー</p>
       <% if @user == current_user %>
         <p>it's you</p>
       <% else %>
